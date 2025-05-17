@@ -1,0 +1,15 @@
+ - DOMAIN-KEYWORD,onedrive,Onedrive
+ - DOMAIN-KEYWORD,skydrive,Onedrive
+ - DOMAIN-SUFFIX,livefilestore.com,Onedrive
+ - DOMAIN-SUFFIX,oneclient.sfx.ms,Onedrive
+ - DOMAIN-SUFFIX,onedrive.com,Onedrive
+ - DOMAIN-SUFFIX,onedrive.live.com,Onedrive
+ - DOMAIN-SUFFIX,photos.live.com,Onedrive
+ - DOMAIN-SUFFIX,sharepoint.com,Onedrive
+ - DOMAIN-SUFFIX,sharepointonline.com,Onedrive
+ - DOMAIN-SUFFIX,skydrive.wns.windows.com,Onedrive
+ - DOMAIN-SUFFIX,spoprod-a.akamaihd.net,Onedrive
+ - DOMAIN-SUFFIX,storage.live.com,Onedrive
+ - DOMAIN-SUFFIX,storage.msn.com,Onedrive
+ - PROCESS-NAME,OneDrive,Onedrive
+ - PROCESS-NAME,OneDriveUpdater,Onedrive
