@@ -1,5 +1,6 @@
- - DOMAIN,bahamut.akamaized.net,TWGames
- - DOMAIN,gamer-cds.cdn.hinet.net,TWGames
- - DOMAIN,gamer2-cds.cdn.hinet.net,TWGames
- - DOMAIN-SUFFIX,bahamut.com.tw,TWGames
- - DOMAIN-SUFFIX,gamer.com.tw,TWGames
+payload:
+ - DOMAIN,bahamut.akamaized.net
+ - DOMAIN,gamer-cds.cdn.hinet.net
+ - DOMAIN,gamer2-cds.cdn.hinet.net
+ - DOMAIN-SUFFIX,bahamut.com.tw
+ - DOMAIN-SUFFIX,gamer.com.tw
