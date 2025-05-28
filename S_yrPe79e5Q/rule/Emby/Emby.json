@@ -1,0 +1,22 @@
+{
+  "rules": [
+    {
+      "domain_suffix": [
+        "cf.bili.rip",
+        "dler.io",
+        "e-hentai.org",
+        "e-hentaidb.com",
+        "emby.as174.de",
+        "exhentai.org",
+        "immtel.com",
+        "immtel.net",
+        "kuromis.com",
+        "maying.club",
+        "maying.co",
+        "nexitally.com",
+        "nexitally.net"
+      ]
+    }
+  ],
+  "version": 2
+}
