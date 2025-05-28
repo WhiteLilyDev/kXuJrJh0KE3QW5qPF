@@ -1,13 +1,15 @@
- - DOMAIN-SUFFIX,immtel.com,Emby
- - DOMAIN-SUFFIX,immtel.net,Emby
- - DOMAIN-SUFFIX,nexitally.com,Emby
- - DOMAIN-SUFFIX,nexitally.net,Emby
- - DOMAIN-SUFFIX,kuromis.com,Emby
- - DOMAIN-SUFFIX,maying.co,Emby
- - DOMAIN-SUFFIX,maying.club,Emby
- - DOMAIN-SUFFIX,dler.io,Emby
- - DOMAIN-SUFFIX,e-hentai.org,Emby
- - DOMAIN-SUFFIX,e-hentaidb.com,Emby
- - DOMAIN-SUFFIX,exhentai.org,Emby
- - DOMAIN-SUFFIX,cf.bili.rip,Emby
- - DOMAIN-SUFFIX,emby.as174.de,Emby
+payload:
+ - DOMAIN-SUFFIX,immtel.com
+ - DOMAIN-SUFFIX,immtel.net
+ - DOMAIN-SUFFIX,nexitally.com
+ - DOMAIN-SUFFIX,nexitally.net
+ - DOMAIN-SUFFIX,kuromis.com
+ - DOMAIN-SUFFIX,maying.co
+ - DOMAIN-SUFFIX,maying.club
+ - DOMAIN-SUFFIX,dler.io
+ - DOMAIN-SUFFIX,e-hentai.org
+ - DOMAIN-SUFFIX,e-hentaidb.com
+ - DOMAIN-SUFFIX,exhentai.org
+ - DOMAIN-SUFFIX,cf.bili.rip
+ - DOMAIN-SUFFIX,emby.as174.de
+ 

@@ -72,5 +72,6 @@ payload:
  - DOMAIN-SUFFIX,mistral.ai
  - DOMAIN-SUFFIX,perplexity.ai
  - DOMAIN-SUFFIX,sora.com
- - IP-CIDR,24.199.123.28/32,no-resolve
- - IP-CIDR,64.23.132.171/32,no-resolve
+ - IP-CIDR,24.199.123.28/32
+ - IP-CIDR,64.23.132.171/32
+ 
