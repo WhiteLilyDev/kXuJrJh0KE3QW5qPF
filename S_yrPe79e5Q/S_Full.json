@@ -1,0 +1,167 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  
+  "experimental": {
+    "clash_api": {
+      "external_controller": "0.0.0.0:9099",
+      "external_ui": "/etc/sing-box/ui",
+      "secret": "177_SingBox177",
+      "external_ui_download_url": "",
+      "external_ui_download_detour": "🎯 全球直连",
+      "default_mode": "rule"
+    }, 
+  "cache_file": {
+    "enabled": true,
+    "path": "/etc/sing-box/cache.db",
+    "store_fakeip": false
+    }
+  },
+
+ "dns": 
+ {
+   "servers": 
+   [
+     {"tag": "dns_proxy", "address": "1.1.1.1", "address_strategy": "ipv4_only", "strategy": "ipv4_only", "detour": "Proxy"},
+     {"tag": "dns_direct", "address": "223.5.5.5", "address_strategy": "ipv4_only", "strategy": "ipv4_only", "detour": "DirectCN"}
+   ],
+   "rules": 
+   [
+     {"outbound": "any", "action": "route", "server": "dns_direct", "disable_cache": true},
+     {"clash_mode": "Direct", "action": "route", "server": "dns_direct"},
+     {"clash_mode": "Global", "action": "route", "server": "dns_proxy"},
+     {"rule_set": "geosite-cn", "action": "route", "server": "dns_direct"},
+     {"rule_set": "geosite-geolocation-!cn", "action": "route", "server": "dns_proxy"}
+   ],
+   "final": "dns_proxy",
+   "strategy": "ipv4_only"
+},
+
+"inbounds": [
+  {
+    "type": "tun",
+    "address": "172.19.0.1/30",
+    "interface_name": "SingBox",
+    "mtu": 9000,
+    "auto_route": true,
+    "strict_route": true,
+    "stack": "system",
+    "platform": {
+      "http_proxy": {
+        "enabled": true,
+        "server": "127.0.0.1",
+        "server_port": 7793
+      }
+    }
+  },
+  {
+    "type": "mixed",
+    "listen": "127.0.0.1",
+    "listen_port": 7793,
+    "sniff": true,
+    "users": []
+  }
+],
+
+  "outbounds": [
+    { "tag": "Proxy", "type": "selector", "outbounds": ["JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "AD", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Google", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "YouTube", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Netflix", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Bilibili", "type": "selector", "outbounds": ["DirectCN", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "Proxy"] },
+    { "tag": "Media", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "MediaCN", "type": "selector", "outbounds": ["DirectCN", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "Proxy"] },
+    { "tag": "Telegram", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Reddit", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Developer", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "AIDeveloper", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Emby", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "EmbyLocal", "type": "selector", "outbounds": ["DirectCN", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "Proxy"] },
+    { "tag": "Crypto", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "PayPal", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Microsoft", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Onedrive", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Apple", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Steam", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "TWGames", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "OtherGames", "type": "selector", "outbounds": ["Proxy", "JP Proxy", "HK Proxy", "SG Proxy", "TW Proxy", "Special Proxy", "DirectCN"] },
+    { "tag": "Others", "type": "selector", "outbounds": ["Proxy","DirectCN"] },
+    { "tag": "HK Proxy", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["HK|hk|香港|港|HongKong"] }] },
+    { "tag": "JP Proxy", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["JP|jp|日本|日|Japan"] }] },
+    { "tag": "SG Proxy", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["SG|sg|新加坡|新|Singapore"] }] },
+    { "tag": "TW Proxy", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["TW|tw|台湾|太|Taiwan"] }] },  
+    { "tag": "Special Proxy", "type": "selector", "outbounds": ["{all}"]},
+    { "tag": "GLOBAL", "type": "selector", "outbounds": ["{all}"]},
+    { "tag": "DirectCN", "type": "direct" }
+  ],
+  
+  "route": 
+ {
+   "auto_detect_interface": true,
+   "final": "Others",
+   "rules": 
+   [
+     {"action": "sniff"},
+     {"protocol": "dns", "action": "hijack-dns"},
+     {"clash_mode": "direct", "outbound": "DirectCN"},
+     {"clash_mode": "global", "outbound": "GLOBAL"},
+     {"domain": ["clash.razord.top", "yacd.metacubex.one", "yacd.haishan.me", "d.metacubex.one"], "outbound": "DirectCN"},
+     {"rule_set": "geosite-AD", "outbound": "AD"},
+     {"rule_set": "geosite-DirectCN", "outbound": "DirectCN"},
+     {"rule_set": "geosite-Google", "outbound": "Google"},
+     {"rule_set": "geosite-YouTube", "outbound": "YouTube"},  
+     {"rule_set": "geosite-Netflix", "outbound": "Netflix"},
+     {"rule_set": "geosite-Bilibili", "outbound": "Bilibili"},
+     {"rule_set": "geosite-Media", "outbound": "Media"},
+     {"rule_set": "geosite-MediaCN", "outbound": "MediaCN"},     
+     {"rule_set": "geosite-Telegram", "outbound": "Telegram"},
+     {"rule_set": "geosite-Reddit", "outbound": "Reddit"},
+     {"rule_set": "geosite-Developer", "outbound": "Developer"},
+     {"rule_set": "geosite-AIDeveloper", "outbound": "AIDeveloper"},
+     {"rule_set": "geosite-Emby", "outbound": "Emby"},
+     {"rule_set": "geosite-EmbyLocal", "outbound": "EmbyLocal"},
+     {"rule_set": "geosite-Crypto", "outbound": "Crypto"},
+     {"rule_set": "geosite-PayPal", "outbound": "PayPal"},
+     {"rule_set": "geosite-Microsoft", "outbound": "Microsoft"},
+     {"rule_set": "geosite-Onedrive", "outbound": "Onedrive"},
+     {"rule_set": "geosite-Apple", "outbound": "Apple"},
+     {"rule_set": "geosite-Steam", "outbound": "Steam"},
+     {"rule_set": "geosite-TWGames", "outbound": "TWGames"},
+     {"rule_set": "geosite-OtherGames", "outbound": "OtherGames"},
+     {"rule_set": "geosite-Proxy", "outbound": "Proxy"},
+     {"rule_set": ["geoip-cn", "geosite-cn"], "outbound": "DirectCN"}
+   ],
+    
+   "rule_set": [
+    { "tag": "geosite-AD", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/AD/AD.json" },
+    { "tag": "geosite-AIDeveloper", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/AIDeveloper/AIDeveloper.json" },
+    { "tag": "geosite-Apple", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Apple/Apple.json" },
+    { "tag": "geosite-Bilibili", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Bilibili/Bilibili.json" },
+    { "tag": "geosite-Crypto", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Crypto/Crypto.json" },
+    { "tag": "geosite-Developer", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Developer/Developer.json" },
+    { "tag": "geosite-DirectCN", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/DirectCN/DirectCN.json" },
+    { "tag": "geosite-Emby", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Emby/Emby.json" },
+    { "tag": "geosite-EmbyLocal", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/EmbyLocal/EmbyLocal.json" },
+    { "tag": "geosite-Google", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Google/Google.json" },
+    { "tag": "geosite-Media", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Media/Media.json" },
+    { "tag": "geosite-MediaCN", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/MediaCN/MediaCN.json" },
+    { "tag": "geosite-Microsoft", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Microsoft/Microsoft.json" },
+    { "tag": "geosite-Netflix", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Netflix/Netflix.json" },
+    { "tag": "geosite-Onedrive", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Onedrive/Onedrive.json" },
+    { "tag": "geosite-OtherGames", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/OtherGames/OtherGames.json" },
+    { "tag": "geosite-PayPal", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/PayPal/PayPal.json" },
+    { "tag": "geosite-Proxy", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Proxy/Proxy.json" },
+    { "tag": "geosite-QiHu360", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/QiHu360/QiHu360.json" },
+    { "tag": "geosite-Reddit", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Reddit/Reddit.json" },
+    { "tag": "geosite-Steam", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Steam/Steam.json" },
+    { "tag": "geosite-Telegram", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/Telegram/Telegram.json" },
+    { "tag": "geosite-TWGames", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/TWGames/TWGames.json" },
+    { "tag": "geosite-YouTube", "type": "local", "format": "source", "path": "C:/Library/Software/singbox/rule/YouTube/YouTube.json" },
+    { "tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs", "download_detour": "🚀 节点选择" }
+  ]
+}
+}
