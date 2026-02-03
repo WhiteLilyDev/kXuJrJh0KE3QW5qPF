@@ -10,6 +10,7 @@ nexitally.net
 kuromis.com
 hls-amt.itunes.apple.com
 audio-ssl.itunes.apple.com
+cdn-apple.com
 cdn.apple-cloudkit.com
 devimages-cdn.apple.com
 devstreaming-cdn.apple.com
