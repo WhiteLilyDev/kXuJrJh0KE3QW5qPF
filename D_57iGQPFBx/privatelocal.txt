@@ -63,7 +63,3 @@ xycdn.com
 00cdn.com
 88cdn.com
 p2cdn.com
-doh.pub
-dot.pub
-dns.alidns.com
-doh.360.cn

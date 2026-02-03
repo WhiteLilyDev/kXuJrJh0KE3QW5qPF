@@ -1,0 +1,4 @@
+doh.pub
+dot.pub
+dns.alidns.com
+doh.360.cn

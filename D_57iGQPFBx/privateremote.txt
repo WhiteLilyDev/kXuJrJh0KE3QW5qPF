@@ -1,10 +1,3 @@
-cloudflare-dns.com
-one.one.one.one
-flymc.cc
-nextdns.io
-nxns.link
-xns.one
-dns.google
 nexitally.com
 nexitally.net
 kuromis.com
